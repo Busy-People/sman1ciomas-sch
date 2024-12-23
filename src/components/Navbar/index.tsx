@@ -1,7 +1,13 @@
+"use client"
+
+
 import Image from "next/image";
 import Link from "next/link";
-
+import { usePathname } from 'next/navigation'
+import { useEffect } from "react";
 export default function Navbar() {
+    const pathname = usePathname();
+
     return (
         <>
             <nav className="flex items-center justify-between bg-white shadow-lg p-5 text-neutral-600">
@@ -15,27 +21,27 @@ export default function Navbar() {
                     </div>
                 </div>
                 <ul className="flex gap-5">
-                    <li className="font-bold hover:text-sky-700">
-                        <Link href="/school-profile">
-                            Profil Sekolah
+                    <li className={`${pathname === "/" && "text-sky-700 underline decoration-sky-600"} font-bold hover:text-sky-700`}>
+                        <Link href="/">
+                            Beranda
                         </Link>
                     </li>
-                    <li className="font-bold hover:text-sky-700">
+                    <li className={`${pathname === "/news" && "text-sky-700 underline decoration-sky-600"} font-bold hover:text-sky-700`}>
                         <Link href="/news">
                             Berita
                         </Link>
                     </li>
-                    <li className="font-bold hover:text-sky-700">
+                    <li className={`${pathname === "/teachers" && "text-sky-700 underline decoration-sky-600"} font-bold hover:text-sky-700`}>
                         <Link href="/teachers">
                             Guru
                         </Link>
                     </li>
-                    <li className="font-bold hover:text-sky-700">
+                    <li className={`${pathname === "/students" && "text-sky-700 underline decoration-sky-600"} font-bold hover:text-sky-700`}>
                         <Link href="/students">
                             Siswa
                         </Link>
                     </li>
-                    <li className="font-bold hover:text-sky-700">
+                    <li className={`${pathname === "/history" && "text-sky-700 underline decoration-sky-600"} font-bold hover:text-sky-700`}>
                         <Link href="/history">
                             Sejarah
                         </Link>
